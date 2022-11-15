@@ -1,0 +1,19 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: i nodejs
+      uses: actions/setup-node@2.5.1
+      with: 
+        node-version: "16.X"
+    - name: npm run install
+      run: npm install
+    - name: running
+      run: npm run serve
